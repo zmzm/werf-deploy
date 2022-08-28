@@ -22,3 +22,12 @@ kubectl config set-context minikube --namespace=your-name-space
 ```text
 minikube addons enable ingress
 ```
+
+### Add minikube IP to /etc/host
+
+```text
+minikube ip - return minikube IP
+
+Add to /etc/host:
+192.168.49.2 werf-first-app.test
+```
