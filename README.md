@@ -31,3 +31,14 @@ minikube ip - return minikube IP
 Add to /etc/host:
 192.168.49.2 werf-first-app.test
 ```
+
+### Create kubectl namespace and generate Docker secret
+
+```text
+kubectl create namespace werf-first-app
+
+kubectl create secret docker-registry registrysecret
+  --docker-server='https://index.docker.io/v1/'
+  --docker-username='<DOCKER HUB USER NAME>'
+  --docker-password='<DOCKER HUB USER PASSWORD>'
+```
