@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: werf-first-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: werf-first-app
+  template:
+    metadata:
+      labels:
+        app: werf-first-app
+    spec:
+      imagePullSecrets:
+      - name: registrysecret
+      containers:
+      - name: werf-deploy
+        image: {{ .Values.werf.image.werf-deploy }}
+        command: ["npm", "start"]
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DEBUG
+          value: "werf-deploy:*"
