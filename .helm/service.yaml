@@ -2,9 +2,16 @@ apiVersion: v1
 kind: Service
 metadata:
   name: werf-first-app
+  namespace: werf-first-app
+  labels:
+    app: werf-first-app
 spec:
   selector:
     app: werf-first-app
   ports:
   - name: http
     port: 3000
+    protocol: TCP
+    targetPort: 3000
+  sessionAffinity: None
+  type: NodePort

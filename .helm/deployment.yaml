@@ -15,8 +15,8 @@ spec:
       imagePullSecrets:
       - name: registrysecret
       containers:
-      - name: werf-deploy
-        image: {{ .Values.werf.image.werf-deploy }}
+      - name: werf-first-app
+        image: {{ .Values.werf.image.werf-first-app }}
         command: ["npm", "start"]
         resources:
           requests:
@@ -29,4 +29,4 @@ spec:
         - containerPort: 3000
         env:
         - name: DEBUG
-          value: "werf-deploy:*"
+          value: "werf-first-app:*"

@@ -1,6 +1,6 @@
-project: werf-first-app
+project: werf-deploy
 configVersion: 1
 
 ---
-image: werf-deploy
+image: werf-first-app
 dockerfile: Dockerfile
